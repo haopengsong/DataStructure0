@@ -55,8 +55,13 @@ bool ArrayBag<ItemType>::isEmpty() const {
 
 template<class ItemType>
 bool ArrayBag<ItemType>::remove(const ItemType& entry) {
-	// instead of shifting array entries after removing an entry
-	// we replace the entry being removed with the last entry in the array
+	// If the order of the elements are irrelavent then we can replace the entry being 
+	// removed with the last entry in the array
+
+	// If the order is important then we copy each successive entry to the previous 
+	// element in the array, begining with the entry after the removed item and ending
+	// with the last entry
+
 	int index = getIndexOf(entry);
 	bool canRemove = !isEmpty() && index != -1;
 	if (canRemove) {
