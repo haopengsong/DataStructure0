@@ -2,9 +2,23 @@
 #include "ArrayBag.h"
 
 // Constructor
+/* non-resizable
 template<class ItemType>
 ArrayBag<ItemType>::ArrayBag() : itemCount(0), maxItems(DEFAULT_CAPACITY) {
 
+}
+*/
+
+// resizable
+template<class ItemType>
+ArrayBag<ItemType>::ArrayBag() : itemCount(0), maxItems(DEFAULT_CAPACITY) {
+	items = new ItemType[DEFAULT_CAPACITY];
+}
+
+// Destructor
+template<class ItemType>
+ArrayBag<ItemType>::~ArrayBag() {
+	delete [] items;
 }
 
 template<class ItemType>
@@ -24,6 +38,7 @@ int ArrayBag<ItemType>::getIndexOf(const ItemType& entry) const {
 	return result;
 }
 
+/* non-resizable
 template<class ItemType>
 bool ArrayBag<ItemType>::add(const ItemType& entry) {
 	bool hasRoomToAdd = (itemCount < maxItems);
@@ -32,6 +47,26 @@ bool ArrayBag<ItemType>::add(const ItemType& entry) {
 		itemCount++;
 	}
 	return hasRoomToAdd;
+}
+*/
+
+// resizable add()
+template<class ItemType>
+bool ArrayBag<ItemType>::add(const ItemType& entry) {
+	bool hasRoomToAdd = itemCount < maxItems;
+	if (!hasRoomToAdd) {
+		// expand items array
+		ItemType* oldArray = items;
+		items = new ItemType[2 * maxItems];
+		for (int index = 0; index < maxItems; index++) {
+			items[index] = oldArray[index];
+		}
+		delete [] oldArray;
+		maxItems = 2 * maxItems;
+	}
+	items[itemCount] = entry;
+	itemCount++;
+	return true;
 }
 
 template<class ItemType>

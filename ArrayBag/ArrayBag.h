@@ -12,7 +12,12 @@ private:
 	static const int DEFAULT_CAPACITY = 20;
 
 	// Array of bag items
-	ItemType items[DEFAULT_CAPACITY];
+	// non-resizable, this array will be allocated during compilation
+	// ItemType items[DEFAULT_CAPACITY];
+
+	// resizable
+	// this way the array is able to resize during execution
+	ItemType* items;
 
 	int itemCount; // current count of items
 
@@ -26,6 +31,8 @@ private:
 
 public:
 	ArrayBag();
+	// virtual ensure that future descendants of the object can deallocate themselves correctly
+	virtual ~ArrayBag(); 
 	int getCurrentSize() const;
 	int getFrequencyOf(const ItemType& entry) const;
 	bool isEmpty() const;

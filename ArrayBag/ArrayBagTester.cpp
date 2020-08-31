@@ -5,8 +5,7 @@
 #include <string>
 #include "ArrayBag.h"
 
-using std::cout;
-using std::endl;
+using namespace std;
 
 void displayBag(ArrayBag<std::string>& bag)
 {

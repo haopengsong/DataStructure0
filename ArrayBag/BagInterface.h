@@ -34,6 +34,9 @@ public:
 	virtual std::vector<Item> toVector() const = 0;
 
 	// Destroys this bag and frees its memory
+	// virtual ensure that future descendants of the object can deallocate themselves correctly
 	virtual ~BagInterface() { }
+
+
 };
 #endif
