@@ -1,6 +1,6 @@
 ## Description 
 
-- Simple implementations of commonly used data structures in C++
+- Simple implementations of commonly used data structures 
   1. Array-based ADT container
 
 ## Resources
