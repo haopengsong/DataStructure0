@@ -10,6 +10,9 @@ public:
 	// Gets the current size of this bag
 	virtual int getCurrentSize() const = 0;
 
+	// Counts the number of times a given entry appears in this bag
+	virtual int getFrequencyOf(const Item& entry) const = 0;
+
 	// Checks if this bag is empty
 	virtual bool isEmpty() const = 0;
 
@@ -25,7 +28,7 @@ public:
 	virtual void clear() = 0;
 
 	// Tests whether this bag contains a given entry
-	virtual bool contains(const Item& entry) = 0;
+	virtual bool contains(const Item& entry) const = 0;
 
 	// Returns a vector filled with all entries that are in this bag
 	virtual std::vector<Item> toVector() const = 0;
@@ -33,3 +36,4 @@ public:
 	// Destroys this bag and frees its memory
 	virtual ~BagInterface() { }
 };
+#endif

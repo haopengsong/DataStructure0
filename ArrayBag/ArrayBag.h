@@ -27,12 +27,13 @@ private:
 public:
 	ArrayBag();
 	int getCurrentSize() const;
+	int getFrequencyOf(const ItemType& entry) const;
 	bool isEmpty() const;
 	bool add(const ItemType& entry);
 	bool remove(const ItemType& entry);
-	void clear()
+	void clear();
 	bool contains(const ItemType& entry) const;
-	vector<ItemType> toVector() const;
+	std::vector<ItemType> toVector() const;
 };
 #include "ArrayBag.cpp"
 #endif
