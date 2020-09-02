@@ -52,17 +52,43 @@ int LinkedBag<ItemType>::getCurrentSize() const {
 	return itemCount;
 }
 
-// the copy constructor
+// the copy constructor performs a deep copy, it copies the entire chain
 // it makes a copy of an object, it is invoked implicitly when:
 // 1) use the assignment operator to assign an object to a variable
 // 2) pass an object to a function by value
 // 3) return the object from a valued function
 // 4) define and initialize an object as in:
 //	LinkedBag bag2(bag1), where bag1 exists already
-// if not using copy constructor, only shallow copy is used
+// if not using copy constructor, only shallow copy is used, only data members are copied
 template<class ItemType>
-LinkedBag<ItemType>::LinkedBag(const LinkedBag& target) {
+LinkedBag<ItemType>::LinkedBag(const LinkedBag& rhs) {
+	itemCount = rhs.itemCount;
+	Node<ItemType>* origChainPtr = rhs.headPtr;
+	if (origChainPtr == nullptr) {
+		headPtr = nullptr; // original bag is empty, so is the copy
+	} else {
+		// copy head node
+		headPtr = new Node<ItemType>();
+		headPtr -> setItem(origChainPtr -> getItem());
+		// copy rest nodes
+		Node<ItemType>* newChainPtr = headPtr;
+		origChainPtr = origChainPtr -> getNext(); // advance pointer
+		while (origChainPtr != nullptr) {
+			// get next item from original chain
+			ItemType nextItem = origChainPtr -> getItem();
 
+			// create a new node containing the next item
+			Node<ItemType>* newNode = new Node<ItemType>(nextItem);
+
+			// link new node to end of new chain
+			newChainPtr -> setNext(newNode);
+
+			// advance pointers
+			newChainPtr = newChainPtr -> getNext();
+			origChainPtr = origChainPtr -> getNext();
+		}
+		newChainPtr -> setNext(nullptr); // end of new chain
+	}
 }
 
 // must have a destructor if class allocates memory dynamically
@@ -122,13 +148,13 @@ int LinkedBag<ItemType>::getFrequencyOf(const ItemType& entry) const {
 			freq++;
 		}
 		counter++;
-		curr = curr -> getNext()
+		curr = curr -> getNext();
 	}
 	return freq;
 }
 
 template<class ItemType>
-Node<ItemType> LinkedBag<ItemType>::getPointerTo(const ItemType& entry) const {
+Node<ItemType>* LinkedBag<ItemType>::getPointerTo(const ItemType& entry) const {
 	bool found = false;
 	Node<ItemType>* curr = headPtr;
 	while (!found && curr != nullptr) {

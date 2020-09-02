@@ -4,6 +4,14 @@
 
 #include <vector>
 
+/*
+Abstract class:
+	- no objects of the abstract type are allowed to be instantiated
+	- pure virtual functions
+	- functions that are not implememnted by the base class must be implemented by the 
+		derived class
+*/
+
 template<class Item>
 class BagInterface {
 public:

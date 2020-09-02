@@ -6,7 +6,9 @@
 #include "Node.h"
 
 /*
+
 Need to implement operations in BagInterface int public methods
+
 */
 template<class ItemType>
 class LinkedBag : public BagInterface<ItemType> {
