@@ -1,7 +1,8 @@
 ## Description 
 - ADT: a collection of data, together with a set of operations with that data, are called an abstract data type (ADT)
 - Simple implementations of commonly used data structures 
-  1. Array-based ADT container (list)
+  1. Array-based ADT Bag
+  2. Linked-based ADT Bag
 
 ## Resources
 - All of the implementations are based on:
