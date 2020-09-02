@@ -1,4 +1,4 @@
-/* Implementation file ofr the class ArrayBag */
+/* Implementation file for the class ArrayBag */
 #include "ArrayBag.h"
 
 // Constructor
