@@ -28,7 +28,72 @@ bool LinkedBag<ItemType>::add(const ItemType& entry) {
 	return true; // always return true, since addition is always possible
 }
 
+// traverse the chain, visit each node, copy its data item into the vector
 template<class ItemType>
-bool 
+std::vector<ItemType> LinkedBag<ItemType>::toVector() const {
+	std::vector<ItemType> bagContents;
+	Node<ItemType>* curr = headPtr;
+	int counter = 0;
+	while (curr != nullptr && counter < itemCount) {
+		bagContents.push_back(curr -> getItem());
+		curr = curr -> getNext();
+		counter++;
+	}
+	return bagContents;
+} 
+
+template<class ItemType>
+bool LinkedBag<ItemType>::isEmpty() const {
+	return itemCount == 0;
+}
+
+template<class ItemType>
+int LinkedBag<ItemType>::getCurrentSize() const {
+	return itemCount;
+}
+
+template<class ItemType>
+LinkedBag<ItemType>::LinkedBag(const LinkedBag& target) {
+
+}
+
+template<class ItemType>
+LinkedBag<ItemType>::~LinkedBag() {
+
+}
+
+template<class ItemType>
+bool LinkedBag<ItemType>::remove(const ItemType& entry) {
+	return false;
+}
+
+template<class ItemType>
+void LinkedBag<ItemType>::clear() {
+	return;
+}
+
+template<class ItemType>
+bool LinkedBag<ItemType>::contains(const ItemType& entry) const {
+	return false;
+}
+
+template<class ItemType>
+int LinkedBag<ItemType>::getFrequencyOf(const ItemType& entry) const {
+	return 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

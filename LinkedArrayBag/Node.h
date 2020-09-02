@@ -5,8 +5,8 @@
 template<class ItemType>
 class Node {
 private:
-	ItemType item // a data item
-	Node<ItemType>* next // pointer to next node
+	ItemType item; // a data item
+	Node<ItemType>* next; // pointer to next node
 public:
 	Node();
 	Node(const ItemType& item);

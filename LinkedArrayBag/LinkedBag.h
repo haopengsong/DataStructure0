@@ -29,7 +29,7 @@ public:
 	void clear();
 	bool contains(const ItemType& entry) const;
 	int getFrequencyOf(const ItemType& entry) const;
-	vector<ItemType> toVector() const;
+	std::vector<ItemType> toVector() const;
 };
 #include "LinkedBag.cpp"
 #endif
