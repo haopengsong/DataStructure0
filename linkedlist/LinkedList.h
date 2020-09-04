@@ -9,3 +9,9 @@ impose a fixed length on the list (however, does limit by system storage)
 #include "ListInterface.h"
 #include "Node.h"
 #include "PreCondViolatedExcept.h"
+
+template<class ItemType>
+class LinkedList : public ListInterface<ItemType> {
+private:
+	
+}
