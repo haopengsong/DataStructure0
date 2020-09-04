@@ -3,6 +3,7 @@
 - Simple implementations of commonly used data structures 
   1. Array-based ADT Bag
   2. Linked-based ADT Bag
+  3. LinkedList
 
 ## Resources
 - All of the implementations are based on:
