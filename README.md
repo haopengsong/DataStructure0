@@ -3,7 +3,7 @@
 - Simple implementations of commonly used data structures 
   1. [Aug. 31, 2020] **Array-based ADT Bag**  [:white_check_mark:]
   2. [Sep. 2,  2020] **Linked-based ADT Bag** [:white_check_mark:]
-  3. [Sep. 5,  2020] **LinkedList** 		  [:white_check_mark:]
+  3. [Sep. 5,  2020] **LinkedList** 		  [:no_entry:]
 
 ## Resources
 - All of the implementations are based on:
