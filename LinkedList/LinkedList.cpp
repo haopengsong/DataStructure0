@@ -64,11 +64,25 @@ bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry) {
 	return canInsert;
 }
 
+template<class ItemType>
+bool LinkedList<ItemType>::remove(int position) {
 
+}
 
+template<class ItemType>
+void LinkedList<ItemType>::clear() {
 
+}
 
+template<class ItemType>
+LinkedList<ItemType>::~LinkedList() {
 
+}
+
+template<class ItemType>
+LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList) {
+	
+}
 
 
 
