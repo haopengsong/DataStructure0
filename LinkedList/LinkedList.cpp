@@ -148,8 +148,9 @@ throw(PrecondViolatedExcept) {
 	bool canReplace = (position >= 1 && position <= itemCount);
 	if (canReplace) {
 		Node<ItemType>* NodeToReplace = getNodeAt(position);
+		ItemType oldEntry = NodeToReplace -> getItem();
 		NodeToReplace -> setItem(newEntry);
-		return NodeToReplace -> getItem();
+		return oldEntry;
 	} else {
 		std::string message = "replace() called with an empty list or ";
 		message += "invalid position";

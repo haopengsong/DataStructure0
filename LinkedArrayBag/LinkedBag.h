@@ -1,4 +1,7 @@
-/** ADT bag: link-based implementation */
+/** ADT bag: link-based implementation 
+LinkedBag: adt bag that uses linked list to store entries which does not
+has a fixed size
+*/
 #ifndef LINKED_BAG_
 #define LINKED_BAG_
 

@@ -1,4 +1,6 @@
-/** Header file for an array-based implementation of the ADT bag */
+/** Header file for an array-based implementation of the ADT bag 
+ArrayBag: adt bag that uses an array to store its entries
+*/
 #ifndef ARRAY_BAG_
 #define ARRAY_BAG_
 

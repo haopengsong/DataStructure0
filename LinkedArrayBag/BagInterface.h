@@ -6,6 +6,7 @@
 
 /*
 Abstract class:
+	- base type can still define an implementation
 	- no objects of the abstract type are allowed to be instantiated
 	- pure virtual functions
 	- functions that are not implememnted by the base class must be implemented by the 
