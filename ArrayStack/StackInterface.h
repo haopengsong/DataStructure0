@@ -20,3 +20,4 @@ public:
 	// destroys this stack and frees its assigned memory
 	virtual ~StackInterface() { }
 };
+#endif

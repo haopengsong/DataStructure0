@@ -38,7 +38,7 @@ bool ArrayStack<ItemType>::pop() {
 
 template<class ItemType>
 ItemType ArrayStack<ItemType>::peek() const {
-	assert(!isEmpty())
+	assert(!isEmpty());
 	// not empty return top
-	return items[pop];
+	return items[top];
 }

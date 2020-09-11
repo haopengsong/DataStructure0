@@ -7,7 +7,7 @@
 template<class ItemType>
 class ArrayStack : public StackInterface<ItemType> {
 private:
-	static const int DEFAULT_CAPACITY;
+	static const int DEFAULT_CAPACITY = 100;
 	ItemType items[DEFAULT_CAPACITY]; // array of stack items
 	int top; // index of top of stack
 public:
