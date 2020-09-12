@@ -10,6 +10,8 @@
 	1. Sorting
 		- **MergeSort**
 		- **QuickSort**
+	2. Searching
+		- **UnionFind**
 
 ## Resources
 - Implementations of ADTs are based on:
