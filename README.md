@@ -6,6 +6,7 @@
   	   - [Sep. 5,  2020] **LinkedList**           [:white_check_mark:]	
         - [Sep. 8,  2020] **Trie**		     [:white_check_mark:]    
        - [Sep. 11, 2020] **ArrayStack**	       [:white_check_mark:]    
+       - [Sep. 16, 2020] **LinkedStack**
 - Implementations of commonly used algorithms
 	1. Sorting
 		- **MergeSort**
