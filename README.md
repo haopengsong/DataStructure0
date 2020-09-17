@@ -8,12 +8,11 @@
        - [Sep. 11, 2020] **ArrayStack**	       [:white_check_mark:]    
        - [Sep. 16, 2020] **LinkedStack**
 - Implementations of commonly used algorithms
-	1. Sorting
+	- UnionFind
+	- Sorting
 		- **MergeSort**
 		- **QuickSort**
-	2. Searching
-		- **UnionFind**
-
+		
 ## Resources
 - Implementations of ADTs are based on:
   - Carrano, F. M., & Henry, T. M. (2016). Data Abstraction & Problem Solving with C++: Walls and Mirrors (7th Edition) (7th ed.). Pearson.          https://www.amazon.com/dp/0134463978?tag=scribbr00-20&linkCode=osi&th=1&psc=1
