@@ -12,7 +12,7 @@ UnionFind::UnionFind(int n) : id(n), count(n) {
 
 int UnionFind::find(int p) {
     while (p != id[p]) {
-        id[p] = id[id[p]];
+        id[p] = id[id[p]]; // path compression
         p = id[p];
     }
     return p;
