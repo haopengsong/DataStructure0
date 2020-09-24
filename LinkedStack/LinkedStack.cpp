@@ -54,20 +54,32 @@ bool LinkedStack<ItemType>::push(const ItemType& item) {
 
 template<class ItemType>
 bool LinkedStack<ItemType>::pop() {
-	
+	bool result = false;
+	if (!isEmpty()) {
+		// stack is not empty; delete top
+		Node<ItemType>* nodeToDeletePtr = topPtr;
+		topPtr = topPtr -> getNext();
+
+		// return deleted memory to system
+		nodeToDeletePtr -> setNext(nullptr);
+		delete nodeToDeletePtr;
+		nodeToDeletePtr = nullptr;
+
+		return true;
+	}
+	return result;
 }
 
+template<class ItemType>
+ItemType LinkedStack<ItemType>::peek() {
+	// enforce precondition during debugging
+	assert(!isEmpty());
 
+	// stack is not empty
+	return topPtr -> getItem();
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+template<class ItemType> 
+bool LinkedStack<ItemType>::isEmpty() const {
+	return topPtr == nullptr;
+}
