@@ -1,5 +1,39 @@
 /* LIFO, Linked-based implementation of stack. It grows and shrink dynamically. 
 Careful when implementing the deep copy constructor
+			----
+topPtr --> | 10 |
+		    ----
+		   |next|
+		    ----
+			|
+			|
+			v
+			----
+		   | 19 |
+		    ----
+		   |next|
+		    ----
+			|
+			|
+			v
+			----
+		   | 19 |
+		    ----
+		   |next|
+		    ----
+		    |
+		    |
+		    v
+		    ----
+		   | 50 |
+		    ----
+		   |next|
+		    ----
+		    |
+		    |
+		    v
+		   ...
+
 */
 
 #ifndef LINKED_STACK_

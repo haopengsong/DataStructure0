@@ -47,6 +47,13 @@ LinkedStack<ItemType>::~LinkedStack() {
 
 template<class ItemType>
 bool LinkedStack<ItemType>::push(const ItemType& item) {
+	Node<ItemType>* newNodePtr = new Node<ItemType>(item, topPtr);
+	topPtr = newNodePtr;
+	newNodePtr = nullptr;
+}
+
+template<class ItemType>
+bool LinkedStack<ItemType>::pop() {
 	
 }
 
