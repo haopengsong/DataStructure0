@@ -1,5 +1,5 @@
-// worst case : when each time pivot chosen is the 'greatest' or 'smallest'
-// and this pattern repeats because in this case the algorithm will only have
+// worst case : when each selected pivot is the 'greatest' or 'smallest' element and this pattern repeats 
+// because in this case the algorithm will only have
 // one group to sort with everything in that group other than the original pivot
 // this will give n groups and each needs to iterate n times, thus n^2 complexity
 
