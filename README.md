@@ -8,6 +8,7 @@
        - [Sep. 11, 2020] **ArrayStack**	       [:white_check_mark:]    
        - [Sep. 16, 2020] **LinkedStack**      [:white_check_mark:]
        - [Sep. 24, 2020] **ListInterface**    [:white_check_mark:]
+       - [Oct. 26, 2020] **ArrayList**
 - Implementations of commonly used algorithms
 	- UnionFind
 	- Sorting
