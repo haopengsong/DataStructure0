@@ -1,4 +1,6 @@
-/** ADT list: Array-based implementation
+/** 
+chapter 7, 7.1
+ADT list: Array-based implementation
 @file ArrayList.h
 */
 
