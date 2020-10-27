@@ -5,8 +5,8 @@
 #ifndef _ARRAY_LIST_
 #define _ARRAY_LIST_
 
-#include "../List/ListInterface.h"
-#include "../LinkedList/PrecondViolatedExcept.h"
+#include "ListInterface.h"
+#include "PrecondViolatedExcept.h"
 
 template<class ItemType>
 class ArrayList : public ListInterface<ItemType> {
