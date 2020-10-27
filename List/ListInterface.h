@@ -28,7 +28,7 @@ public:
 	virtual bool remove(int position) = 0;
 
 	// removes all entries from this list
-	virtual bool clear() = 0;
+	virtual void clear() = 0;
 
 	// gets the entry at the given position in this list
 	virtual ItemType getEntry(int position) const = 0;
@@ -38,5 +38,5 @@ public:
 
 	// destroys this list and frees its assigned memory
 	virtual ~ListInterface() { } 
-}
+};
 #endif
