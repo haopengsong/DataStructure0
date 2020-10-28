@@ -15,8 +15,9 @@ class ArrayList : public ListInterface<ItemType> {
 private:
 	static const int DEFAULT_CAPACITY = 100; // Default capacity of the list
 	ItemType items[DEFAULT_CAPACITY];
-	int itemCount; // current count of list items
-	int maxItems; // maximum capacity of the list
+	int itemCount; // current count of list items also
+				   //  count of the last entry in the array
+	int maxItems;  // maximum capacity of the list
 public:
 	ArrayList(); // copy constructor and destructor are supplied by compiler
 	bool isEmpty() const;

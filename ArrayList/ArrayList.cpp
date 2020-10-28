@@ -47,21 +47,46 @@ throw(PrecondViolatedExcept) {
 	}
 }
 
+
+/*
+need to shift entries in the array so that a removal
+does not leave a gap
+*/
 template<class ItemType>
 bool ArrayList<ItemType>::remove(int position) {
-	return false;
+	if (itemCount == 0) return false;
+	bool ableToRemove = (position >= 0) && (position <= itemCount);
+	if (ableToRemove) {
+		// no shift if position == itemCount
+		for (int pos = position; pos < itemCount; pos++) {
+			items[pos] = items[pos + 1];
+		}
+		itemCount--;
+	}
+	return ableToRemove;
 }
 
 template<class ItemType>
 void ArrayList<ItemType>::clear() {
-
+	itemCount = 0;
 }
 
 template<class ItemType>
 ItemType ArrayList<ItemType>::replace(int position, const ItemType& nEntry)
 throw(PrecondViolatedExcept) {
-	return nullptr;
+	bool ableToSet = (position >= 0) && (position <= itemCount);
+	if (ableToSet) {
+		ItemType oldEntry = items[position];
+		items[position] = nEntry;
+		return oldEntry;
+	} else {
+		std::string message = "replace() called with an empty list or ";
+		message += "invalid position";
+		throw(PrecondViolatedExcept(message));
+	}
 }
+
+
 
 
 
