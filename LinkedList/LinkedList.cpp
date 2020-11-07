@@ -13,7 +13,7 @@ template<class ItemType>
 ItemType LinkedList<ItemType>::getEntry(int position) const 
 throw(PrecondViolatedExcept) {
 	// enfore precondition, position starts at 1
-	bool canGet = (position > 1) && (position <= itemCount);
+	bool canGet = (position >= 1) && (position <= itemCount);
 	if (canGet) {
 		Node<ItemType>* nodePtr = getNodeAt(position);
 		return nodePtr -> getItem();

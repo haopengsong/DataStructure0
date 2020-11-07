@@ -1,5 +1,5 @@
 /** 
-chapter 7, 7.1
+chapter 9, 9.1
 ADT list: Array-based implementation
 @file ArrayList.h
 */
