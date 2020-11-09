@@ -13,7 +13,7 @@ public:
 	virtual int getLength() const = 0;
 
 	// inserts an entry into this list at a given position, possible renumbering
-	virtual bool inserts(int newPos, const ItemType& entry) = 0;
+	virtual bool insert(int newPos, const ItemType& entry) = 0;
 
 	// removes the entry at a given position from this list, possible renumbering
 	virtual bool remove(int position) = 0;

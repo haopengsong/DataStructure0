@@ -8,7 +8,7 @@ impose a fixed length on the list (however, it does limit by system storage)
 
 #include "ListInterface.h"
 #include "Node.h"
-#include "PreCondViolatedExcept.h"
+#include "PrecondViolatedExcept.h"
 
 template<class ItemType>
 class LinkedList : public ListInterface<ItemType> {
@@ -31,8 +31,8 @@ public:
 	void clear();
 
 	// @throw PrecondViolatedExcept if position < 1 or position > getLength()
-	ItemType getEntry(int position) const throw(PreCondViolatedExcept);
-	ItemType replace(int position, const ItemType& newEntry) throw(PreCondViolatedExcept)
+	ItemType getEntry(int position) const throw(PrecondViolatedExcept);
+	ItemType replace(int position, const ItemType& newEntry) throw(PrecondViolatedExcept);
 
 };
 #include "LinkedList.cpp"

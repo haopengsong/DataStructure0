@@ -108,6 +108,7 @@ LinkedList<ItemType>::~LinkedList() {
 	clear();
 }
 
+// reference to p147, chapter link-based arrayBag
 template<class ItemType>
 LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& rhs) {
 	itemCount = rhs.itemCount;
@@ -138,7 +139,7 @@ LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& rhs) {
 }
 
 template<class ItemType>
-bool LinkedList<ItemType>::isEmpty() {
+bool LinkedList<ItemType>::isEmpty() const {
 	return itemCount == 0;
 }
 
@@ -158,10 +159,10 @@ throw(PrecondViolatedExcept) {
 	}
 }
 
-
-
-
-
+template<class ItemType>
+int LinkedList<ItemType>::getLength() const {
+	return itemCount;
+}
 
 
 
