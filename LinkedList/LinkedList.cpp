@@ -25,11 +25,24 @@ throw(PrecondViolatedExcept) {
 }
 
 // locates the node at a given position by traversing the chain
+/*
 template<class ItemType>
 Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const {
 	// debugging check of precondition
 	assert(position >= 1 && position <= itemCount);
 	Node<ItemType>* curPtr = headPtr;
+	for (int i = 1; i < position; i++) {
+		curPtr = curPtr -> getNext();
+	}
+	return curPtr;
+}
+*/
+// version 2 with shared ptr
+template<class ItemType>
+auto LinkedList<ItemType>::getNodeAt(int position) const {
+	// debugging check of precondition
+	assert(position >= 1 && position <= itemCount);
+	auto curPtr = headPtr;
 	for (int i = 1; i < position; i++) {
 		curPtr = curPtr -> getNext();
 	}
