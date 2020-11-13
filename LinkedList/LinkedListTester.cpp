@@ -28,5 +28,7 @@ int main(int argc, char const *argv[])
 		n--;
 	}
 
+	tester -> clear();
+
 	return 0;
 }

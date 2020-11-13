@@ -15,7 +15,7 @@ throw(PrecondViolatedExcept) {
 	// enfore precondition, position starts at 1
 	bool canGet = (position >= 1) && (position <= itemCount);
 	if (canGet) {
-		Node<ItemType>* nodePtr = getNodeAt(position);
+		auto nodePtr = getNodeAt(position);
 		return nodePtr -> getItem();
 	} else {
 		std::string message = "getEntry() called with an empty list or ";
@@ -55,12 +55,16 @@ auto LinkedList<ItemType>::getNodeAt(int position) const {
 // 3. connect the new node to the linked chain by changing pointers
 // inserts at the end is not a special case as when curPtr becomes nullptr
 // it has pasted the end of the chain, also prePtr will point at the end of the entry
+
+// using smart pointer: when insert terminates, all nodes in the linked
+// 
 template<class ItemType>
 bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry) {
 	bool canInsert = (newPosition >= 1 && newPosition <= itemCount + 1);
 	if (canInsert) {
 		// create new node
-		Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry);
+		// Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry);
+		auto newNodePtr = std::make_shared<Node<ItemType>>(newEntry);
 		// attach new node to chain
 		if (newPosition == 1) {
 			// insert at the begining
@@ -68,10 +72,11 @@ bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry) {
 			headPtr = newNodePtr;
 		} else {
 			// find the node that will be before newPosition
-			Node<ItemType>* prePtr = getNodeAt(newPosition - 1);
+			// Node<ItemType>* prePtr = getNodeAt(newPosition - 1);
+			auto prevPtr = getNodeAt(newPosition - 1);
 			// insert new node after node to which prePtr points
-			newNodePtr -> setNext(prePtr -> getNext());
-			prePtr -> setNext(newNodePtr);
+			newNodePtr -> setNext(prevPtr -> getNext());
+			prevPtr -> setNext(newNodePtr);
 		}
 		itemCount++;
 	}
@@ -86,23 +91,25 @@ template<class ItemType>
 bool LinkedList<ItemType>::remove(int position) {
 	bool canRemove = (position >= 1 && position <= itemCount);
 	if (canRemove) {
-		Node<ItemType>* curPtr = nullptr;
+		// Node<ItemType>* curPtr = nullptr;	
 		if (position == 1) {
 			// remove the first node
-			curPtr = headPtr;
+			// curPtr = headPtr;
 			headPtr = headPtr -> getNext();
  		} else {
  			// find the node that is before the one to remove
- 			Node<ItemType>* prev = getNodeAt(position - 1);
+ 			// Node<ItemType>* prev = getNodeAt(position - 1);
+ 			auto prevPtr = getNodeAt(position - 1);
  			// point to node to remove
- 			curPtr = prev -> getNext();
+ 			// curPtr = prev -> getNext();
+ 			auto curPtr = prevPtr -> getNext();
  			// disconnect indicated node from chain by connecting the prior
  			// node with the one after
- 			prev -> setNext(curPtr -> getNext());
+ 			prevPtr -> setNext(curPtr -> getNext());
  		}
- 		curPtr -> setNext(nullptr);
- 		delete curPtr;
- 		curPtr = nullptr;
+ 		// curPtr -> setNext(nullptr);
+ 		// delete curPtr;
+ 		// curPtr = nullptr;
  		itemCount--;
 	}
 	return canRemove;
@@ -111,9 +118,12 @@ bool LinkedList<ItemType>::remove(int position) {
 // invoke remove(1) repeatedly until the list is empty
 template<class ItemType>
 void LinkedList<ItemType>::clear() {
-	while (!isEmpty()) {
-		remove(1);
-	}
+	// while (!isEmpty()) {
+	// 	remove(1);
+	// }
+	headPtr = nullptr;
+	itemCount = 0;
+	std::cout << "clear called" << std::endl;
 }
 
 template<class ItemType>
@@ -161,7 +171,7 @@ ItemType LinkedList<ItemType>::replace(int position, const ItemType& newEntry)
 throw(PrecondViolatedExcept) {
 	bool canReplace = (position >= 1 && position <= itemCount);
 	if (canReplace) {
-		Node<ItemType>* NodeToReplace = getNodeAt(position);
+		auto NodeToReplace = getNodeAt(position);
 		ItemType oldEntry = NodeToReplace -> getItem();
 		NodeToReplace -> setItem(newEntry);
 		return oldEntry;
