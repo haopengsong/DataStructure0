@@ -40,6 +40,7 @@ public:
 */
 
 // version 2, using shared ptr
+
 #ifndef LINKED_LIST_
 #define LINKED_LIST_
 
