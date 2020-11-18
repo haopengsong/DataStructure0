@@ -1,3 +1,3 @@
 ### Sorting process
 - Selection Sort
-	![png](/graph/selection.png)
+	![png](/Sorting/graph/selection.png)
