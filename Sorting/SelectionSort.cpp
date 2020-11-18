@@ -5,7 +5,7 @@ Analysis:
 	- Time:
 		- Total possible looping: (n - 1) + (n - 2) + ... + 1 = n * (n - 1) / 2 => O(n^2)
 		- Each of the n - 1 calls to swap requires 3 assignments or data moves, so calls to 
-		swap require 3 * (n - 1) moves
+		swap require 3 * (n - 1) => o(n) moves
 
 	- Algorithms requires o(n^2) comparisons, but only o(n) data moves
 	- A good choice when data moves are costly but comparisons are not, such as
