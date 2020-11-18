@@ -1,6 +1,17 @@
 /* Implementation of selection sort
 Sorts the items in an array into ascending order.
-main idea: select the largest item */
+main idea: select the largest item 
+Analysis:
+	- Time:
+		- Total possible looping: (n - 1) + (n - 2) + ... + 1 = n * (n - 1) / 2 => O(n^2)
+		- Each of the n - 1 calls to swap requires 3 assignments or data moves, so calls to 
+		swap require 3 * (n - 1) moves
+
+	- Algorithms requires o(n^2) comparisons, but only o(n) data moves
+	- A good choice when data moves are costly but comparisons are not, such as
+	when each data item is large but the sort key is short or an integer
+
+*/
 
 #include <iostream>
 
