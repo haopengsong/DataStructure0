@@ -11,7 +11,7 @@ Analysis:
 	- In the worst case, bubble sort will require a total of:
 		(n - 1) + (n - 2) + ... + 1 = n * (n - 1) / 2 => O(n^2) comparisons and 
 		Same number of exchanges. Each exchange requires 3 data moves => O(n^2)
-	- The best case occur when the original data is already sorted => O(n)
+	- The best case occurs when the original data is already sorted => O(n)
 */
 
 #include <iostream>
