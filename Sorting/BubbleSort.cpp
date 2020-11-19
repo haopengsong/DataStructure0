@@ -6,6 +6,12 @@ proper position at the end of the array. During the second pass of the bubble so
 to the begining of the array and consider pairs of items in exactly the same manner as the first
 
 Can terminate the process if no exchanges occur during any pass.
+
+Analysis:
+	- In the worst case, bubble sort will require a total of:
+		(n - 1) + (n - 2) + ... + 1 = n * (n - 1) / 2 => O(n^2) comparisons and 
+		Same number of exchanges. Each exchange requires 3 data moves => O(n^2)
+	- The best case occur when the original data is already sorted => O(n)
 */
 
 #include <iostream>
