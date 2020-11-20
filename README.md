@@ -11,12 +11,7 @@
        - [Oct. 28, 2020] **ArrayList**        [:white_check_mark:]
 - Implementations of commonly used algorithms
 	- UnionFind
-	- Sorting
-		-**MergeSort**
-		-**QuickSort**
-    	        -**BubbleSort**
-    	        -**InsertionSort**
-   		-**SelectionSort**
+	- Sorting -**MergeSort** -**QuickSort** -**BubbleSort** -**InsertionSort** -**SelectionSort**
 		
 ## Resources
 - Implementations of ADTs are based on:
