@@ -14,6 +14,9 @@
 	- Sorting
 		- **MergeSort**
 		- **QuickSort**
+    - **BubbleSort**
+    - **InsertionSort**
+    - **SelectionSort**
 		
 ## Resources
 - Implementations of ADTs are based on:
