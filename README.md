@@ -12,11 +12,11 @@
 - Implementations of commonly used algorithms
 	- UnionFind
 	- Sorting
-		- **MergeSort**
-		- **QuickSort**
-    		- **BubbleSort**
-    		- **InsertionSort**
-   		- **SelectionSort**
+		-**MergeSort**
+		-**QuickSort**
+    	        -**BubbleSort**
+    	        -**InsertionSort**
+   		-**SelectionSort**
 		
 ## Resources
 - Implementations of ADTs are based on:
