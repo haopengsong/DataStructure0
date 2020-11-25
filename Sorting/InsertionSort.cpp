@@ -4,6 +4,12 @@
 	- Items in the sorted region are sorted among themselves
 Main idea: take each item from the unsorted region and insert it into its
 		   correct order in the sorted region.
+Analysis:
+	Outer for loop in the function executes n - 1 times
+		Inner while loop executes at most unsorted times for values range from 1 to n - 1
+			worst case total comparsion occurs: 1 + 2 + ... + (n - 1) = n * (n - 1) / 2
+	Outer loop moves data items twice per iteration = 2 * (n - 1)
+	=> O(n^2)
 */
 
 #include <iostream>
