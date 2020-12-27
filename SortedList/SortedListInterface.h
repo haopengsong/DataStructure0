@@ -18,6 +18,27 @@ public:
 	// entry in this sorted list. If the entry is not in the list
 	// determines where it should be if it were added to the list.
 	// @Return Either the position of the given entry, if it occurs
-	// 
+	// in the sorted list, or the position where the entry would occur, but
+	// as a negative integer
+	virtual int getPosition(const ItemType& entry) const = 0;
 
+	// whether this list is empty
+	virtual bool isEmpty() const = 0;
+
+	// get the current number of entries in this list
+	virtual int getLength() const = 0;
+
+	// removes the entry at a given position from this list
+	virtual bool remove(int position) = 0;
+	
+	// removes all entires from this list
+	virtual void clear() = 0;
+
+	// gets the entry at the given position in this list
+	virtual ItemType getEntry(int position) const = 0;
+
+	// Destorys this sorted list and free its assigned memory
+	virtual ~SortedListInterface() { }		
 };
+
+#endif
