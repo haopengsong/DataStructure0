@@ -1,4 +1,6 @@
-/** ADT sorted list: Link-based implementation */
+/** ADT sorted list: Link-based implementation 
+Chpater 12
+*/
 
 #ifndef LINKED_SORTED_LIST_
 #define LINKED_SORTED_LIST_
@@ -27,7 +29,7 @@ private:
 
 public:
 	LinkedSortedList();
-	LinkedSortedList(const LinkedSortedList<ItemType>& alist);
+	LinkedSortedList(const LinkedSortedList<ItemType>& alist); // copy constructor
 	virtual ~LinkedSortedList();
 	bool insertSorted(const ItemType& entry);
 	bool removeSorted(const ItemType& entry);
