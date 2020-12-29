@@ -33,9 +33,28 @@ auto LinkedSortedList<ItemType>::copyChain(const std::shared_ptr<Node<ItemType>>
 	return copiedChainPtr;
 }
 
-template<class ItemType>
-void LinkedSortedList<ItemType>::insertSorted(const ItemType& entry) {
 
+/*
+adding an entry to a sorted list requires that you find where in the list the new 
+entry belongs. Since the entries are sorted, you compare the new entry with the entries
+int the sorted list until you reach an entry that is not smaller than the new entry
+*/
+template<class ItemType>
+bool LinkedSortedList<ItemType>::insertSorted(const ItemType& newEntry) {
+	auto newNodePtr(std::make_shared<Node<ItemType>>(newEntry));
+	auto prevPtr = getNodeBefore(newEntry);
+	if (isEmpty() || (prevPtr == nullptr)) {
+		// add at beginning 
+		newNodePtr -> setNext(headPtr);
+		headPtr = newNodePtr;	
+	} else {
+		// add after node before
+		auto afterPtr = prevPtr -> getNext();
+		newNodePtr -> setNext(afterPtr);
+		prevPtr -> setNext(newNodePtr);
+	}
+	itemCount++;
+	return true;
 }
 
 // the performance of insertSorted depends on the efficiency of the method getNodeBefore
