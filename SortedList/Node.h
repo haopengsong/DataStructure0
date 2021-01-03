@@ -44,7 +44,7 @@ public:
 	void setItem(const ItemType& item);
 	void setNext(std::shared_ptr<Node<ItemType>> nextNodePtr);
 	ItemType getItem() const;
-	auto getNext() const;
+	std::shared_ptr<Node<ItemType>> getNext() const;
 };
 #include "Node.cpp"
 #endif

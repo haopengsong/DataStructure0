@@ -1,5 +1,6 @@
-/** ADT sorted list: Link-based implementation 
+/** ADT sorted list: Implementation that use the adt list
 Chpater 12
+
 */
 
 #ifndef LINKED_SORTED_LIST_
@@ -19,13 +20,13 @@ private:
 	// locates the node that is before the node that should or does contain the given entry
 	// @return either a pointer to the node before the node that contains or should contain the 
 	// given entry, or nullptr if no prior node exists
-	auto getNodeBefore(const ItemType& entry) const;
+	std::shared_ptr<Node<ItemType>> getNodeBefore(const ItemType& entry) const;
 
 	// locates the node at a given position within the chain
-	auto getNodeAt(int position) const;
+	std::shared_ptr<Node<ItemType>> getNodeAt(int position) const;
 
 	// returns a pointer to a copy of the chain to which origChainPtr points
-	auto copyChain(const std::shared_ptr<Node<ItemType>>& origChainPtr);
+	std::shared_ptr<Node<ItemType>> copyChain(const std::shared_ptr<Node<ItemType>>& origChainPtr);
 
 public:
 	LinkedSortedList();
@@ -33,7 +34,7 @@ public:
 	virtual ~LinkedSortedList();
 	bool insertSorted(const ItemType& entry);
 	bool removeSorted(const ItemType& entry);
-	int getPosition(const ItemType& entry);
+	int getPosition(const ItemType& entry) const;
 	bool isEmpty() const;
 	int getLength() const;
 	bool remove(int position);
@@ -41,7 +42,7 @@ public:
 	ItemType getEntry(int position) const
 	throw(PrecondViolatedExcept);
 };
-#include "LinkedSortedList.cpp" // when using template, the head file should include the 
+#include "LinkedSortedList.cpp" // when using template, the header file should include the 
 								// implementation file, because the compiler does not compile
 								// a template class until it sees the client's instantiation of the 
 								// template and knows the actual data type correspoinding to the 

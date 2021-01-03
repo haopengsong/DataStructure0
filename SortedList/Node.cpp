@@ -74,6 +74,6 @@ ItemType Node<ItemType>::getItem() const {
 }
 
 template<class ItemType>
-auto Node<ItemType>::getNext() const {
+std::shared_ptr<Node<ItemType>> Node<ItemType>::getNext() const {
 	return this -> next;
 }
