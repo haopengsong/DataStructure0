@@ -9,6 +9,8 @@
        - [Sep. 16, 2020] **LinkedStack**      [:white_check_mark:]
        - [Sep. 24, 2020] **ListInterface**    [:white_check_mark:]
        - [Oct. 28, 2020] **ArrayList**        [:white_check_mark:]
+       - [Jan. 03, 2021] **LinkedSortedList**  [:white_check_mark:]
+
 - Implementations of commonly used algorithms
 	- UnionFind
 	- Sorting -**MergeSort** -**QuickSort** -**BubbleSort** -**InsertionSort** -**SelectionSort**
