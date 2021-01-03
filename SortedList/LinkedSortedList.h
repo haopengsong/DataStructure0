@@ -1,6 +1,6 @@
 /** ADT sorted list: Implementation that use the adt list
 Chpater 12
-
+	- for compilation: g++ LinkedSortedListTester.cpp PrecondViolatedExcept.cpp -std=c++11 -o tester
 */
 
 #ifndef LINKED_SORTED_LIST_
