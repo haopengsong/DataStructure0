@@ -4,7 +4,8 @@
  * 	sorted lists and the class of lists;
  * ADT sorted list using the ADT list
  * Chapter 12-3
- * /
+ */
+
 #ifndef SORTED_LIST_HAS_A_
 #define SORTED_LIST_HAS_A_
 
@@ -23,5 +24,17 @@ public:
 	SortedListHasA();
 	SortedListHasA(const SortedListHasA<ItemType>& alist);
 	virtual ~SortedListHasA();
+	bool insertSorted(const ItemType& entry);
+	bool removeSorted(const ItemType& entry);
+	int getPosition(const ItemType& entry) const;
 	
+	// followings are the same as those described in ch8 - listInterface
+	bool isEmpty() const;
+	int getLength() const;
+	bool remove(int postiion);
+	void clear();
+	ItemType getEntry(int position) const 
+	throw(PrecondViolatedExcept);
 };
+#include "SortedListHasA.cpp"
+#endif
