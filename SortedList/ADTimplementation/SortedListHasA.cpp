@@ -37,7 +37,12 @@ bool SortedListHasA<ItemType>::insertSorted(const ItemType& entry) {
 
 template<class ItemType>
 bool SortedListHasA<ItemType>::removeSorted(const ItemType& entry) {
-	
+	int position = getPosition(entry);
+	bool ableToRemove = position > 0;
+	if (ableToRemove) {
+		remove(position);
+	}	
+	return ableToRemove;
 }
 
 template<class ItemType>
