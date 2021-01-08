@@ -45,6 +45,7 @@ bool SortedListHasA<ItemType>::removeSorted(const ItemType& entry) {
 	return ableToRemove;
 }
 
+// Linked-based: o(n^2), Array-based: o(n)
 template<class ItemType>
 int SortedListHasA<ItemType>::getPosition(const ItemType& entry) const {
 	int position = 1;

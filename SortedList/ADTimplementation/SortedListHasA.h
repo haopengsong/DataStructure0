@@ -4,6 +4,9 @@
  * 	sorted lists and the class of lists;
  * ADT sorted list using the ADT list
  * Chapter 12-3
+ * Must use the list's operations to access the sorted list's entries, instead of accessing them
+ * directly. Such implementation of the sorted list is easy to write but is inefficient when the
+ * underlying list uses a chain of linked nodes to store its entries
  */
 
 #ifndef SORTED_LIST_HAS_A_
