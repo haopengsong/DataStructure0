@@ -47,32 +47,40 @@ bool SortedListHasA<ItemType>::removeSorted(const ItemType& entry) {
 
 template<class ItemType>
 int SortedListHasA<ItemType>::getPosition(const ItemType& entry) const {
-
+	int position = 1;
+	int length = getLength();
+	while (position <= length && entry > getEntry(position)) {
+		position++;
+	}
+	if (position > length || entry != getEntry(position)) {
+		return -position;
+	}
+	return position;
 }
 
 
 template<class ItemType>
 bool SortedListHasA<ItemType>::isEmpty() const {
-
+	return listPtr -> isEmpty();
 }
 
 template<class ItemType>
 int SortedListHasA<ItemType>::getLength() const {
-
+	return listPtr -> getLength();
 }
 
 template<class ItemType>
 bool SortedListHasA<ItemType>::remove(int position) {
-
+	return listPtr -> remove(position);
 }
 
 template<class ItemType>
 void SortedListHasA<ItemType>::clear() {
-
+	listPtr -> clear();
 }
 
 template<class ItemType>
 ItemType SortedListHasA<ItemType>::getEntry(int position) const
 throw(PrecondViolatedExcept)  {
-
+	return listPtr -> getEntry(position);
 }
