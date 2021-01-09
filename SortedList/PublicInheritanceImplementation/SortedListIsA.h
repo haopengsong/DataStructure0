@@ -4,6 +4,8 @@ insertion and removal operations
 2) An is-a relationship implies public inheritance
 3) Some methods (insert, replace) must be overriden to prevent a client from calling them which avoids destroying the list order
 3) chapter 12-3-2
+4) Only use public inheritance when the new class has the is-a relationship with the existing 
+   class
 */
 #ifndef SORTED_LIST_IS_A_
 #define SORTED_LIST_IS_A_
