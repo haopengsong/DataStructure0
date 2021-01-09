@@ -3,6 +3,8 @@
 giving a client access to them
 2) Just inherit members from the existing class 
 3) ch 12.3.3
+4) Private inheritance does not allow you to use an instance of SortedListAsA whenever you can 
+use an instance of LinkedList; that is SortedListAsA and LinkedList are not object-type compatible
 */
 
 #ifndef SORTED_LIST_AS_A_
