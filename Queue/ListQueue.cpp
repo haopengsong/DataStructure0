@@ -13,6 +13,8 @@ ListQueue<ItemType>::ListQueue() : listPtr(std::make_unique<LinkedList<ItemType>
 template<class ItemType>
 ListQueue<ItemType>::ListQueue(const ListQueue& q) : listPtr(q.listPtr) {
 	// copy constructor
+	// deep copy assumption: listPtr(q.listPtr);
+	
 }
 
 template<class ItemType>
