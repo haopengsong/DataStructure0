@@ -41,3 +41,20 @@ bool LinkedQueue<ItemType>::dequeue() {
 	}
 	return result;
 }
+
+template<class ItemType>
+ItemType LinkedQueue<ItemType>::peekFront() const 
+	throw(PrecondViolatedExcept) {
+	if ( !isEmpty() ) {
+		return frontPtr -> getItem();
+	} else {
+		throw PrecondViolatedExcept("peekFront() called with empty queue");
+	}
+}
+
+template<class ItemType>
+bool LinkedQueue<ItemType>::isEmpty() const {
+	return frontPtr == backPtr;
+}
+
+
