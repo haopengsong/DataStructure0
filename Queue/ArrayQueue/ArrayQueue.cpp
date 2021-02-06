@@ -3,54 +3,65 @@
 #include "ArrayQueue.h"
 
 template<class ItemType>
-ArrayQueue<ItemType>::ArrayQueue() : front(0), back(DEFAULT_CAPACITY - 1), count(0)
+ArrayQueue<ItemType>::ArrayQueue() : front(0), back(0), capacity(0)
 {
+}
+
+template<class ItemType>
+ArrayQueue<ItemType>::ArrayQueue( int k ) {
+	capacity = k + 1;
+	arr.resize( capacity );
+	front = 0;
+	back = 0;
+}
+
+template<class ItemType>
+ArrayQueue<ItemType>::~ArrayQueue() {
+
 }
 
 template<class ItemType>
 bool ArrayQueue<ItemType>::isEmpty() const 
 {
-	return count == 0;
+	return front == back;
 }
 
 template<class ItemType>
 bool ArrayQueue<ItemType>::enqueue(const ItemType& entry) 
 {
-	bool result = false;
-	if (count < DEFAULT_CAPACITY) {
-		// QUEUE has room for another item
-		back = (back + 1) % DEFAULT_CAPACITY;
-		item[back] = entry;
-		count++;
-		result = true;
+	if (isFull()) {
+		return false;
 	}
-	return result;
+	arr[back] = entry;
+	back = (back + 1) % capacity;
+	return true;
 }
 
 template<class ItemType>
 bool ArrayQueue<ItemType>::dequeue() 
 {
-	bool result = false;
-	if (!isEmpty()) {
-		front = (front + 1) % DEFAULT_CAPACITY;
-		count--;
-		result = true;
+	if (isEmpty()) {
+		return false;
 	}
-	return result;
+	front = (front + 1) % capacity;
+	return true;
+}
+
+
+template<class ItemType>
+ItemType ArrayQueue<ItemType>::Front() const throw(PrecondViolatedExcept)  {
+	return isEmpty() ? throw PrecondViolatedExcept( "Front() called with an empty queue" ) : arr[front];
 }
 
 template<class ItemType>
-ItemType ArrayQueue<ItemType>::peekFront() 
-const throw(PrecondViolatedExcept) 
-{
-	if (isEmpty()) {
-		throw PrecondViolatedExcept(" peekFront() called with empty queue ");
-	}
-	return item[front];
+ItemType ArrayQueue<ItemType>::Rear() const throw(PrecondViolatedExcept) {	
+	return isEmpty() ? throw PrecondViolatedExcept( "Rear() called with an empty queue" ) : arr[(back - 1 + capacity) % capacity];
 }
 
-
-
+template<class ItemType>
+bool ArrayQueue<ItemType>::isFull() const {
+	return (back + 1) % capacity == front; 
+}
 
 
 

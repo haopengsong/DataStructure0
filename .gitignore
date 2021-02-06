@@ -1,6 +1,6 @@
 # vim
 *.swp
-
+*.swo
 # c++
 # Prerequisites
 *.d

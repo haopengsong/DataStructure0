@@ -26,9 +26,10 @@ public:
 	// removes the front of this queue
 	virtual bool dequeue() = 0;
 
+	// returns the back of this queue
+	virtual ItemType Rear() const = 0;
 	// returns the front of this queue
-	virtual ItemType peekFront() const = 0;
-	
+	virtual ItemType Front() const = 0;	
 	virtual ~QueueInterface() { }
 };
 #endif
