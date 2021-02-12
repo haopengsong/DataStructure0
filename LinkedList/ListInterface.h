@@ -30,5 +30,10 @@ public:
 
 	// destroy this list and frees its assigned memory
 	virtual ~ListInterface() { }
+
+	// make all implementations of ListInterface to provide an implementation of the operator == 
+	virtual bool operator==( const LinkedList<ItemType>& rhs ) const = 0;
+
+	// 
 }; // end ListInterface
 #endif

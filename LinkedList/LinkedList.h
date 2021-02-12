@@ -64,6 +64,15 @@ public:
 	LinkedList(const LinkedList<ItemType>& aList);
 	virtual ~LinkedList();
 
+	bool operator==(const LinkedList<ItemType>& rhs) const;
+	LinkedList<ItemType>& operator=(const LinkedList<ItemType>& rightHandSide);
+	LinkedList<ItemType>& operator+(const LinkedList<ItemType>& rightHandSide);
+
+	template<class firendItemType>
+	friend std::ostream& operator<<(std::ostream& outStream,
+					 const LinkedList<friendItemType>& outputList);
+	
+
 	bool isEmpty() const;
 	int getLength() const;
 	bool insert(int newPosition, const ItemType& newEntry);

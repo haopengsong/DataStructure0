@@ -187,7 +187,24 @@ int LinkedList<ItemType>::getLength() const {
 	return itemCount;
 }
 
+template<class ItemType>
+bool LinkedList<ItemType>::operator==(const LinkedList<ItemType>& rhs) const {
 
+}
+
+template<class friendItemType>
+std::ostream& operator<<(std::ostream& outStream,
+			const LinkedList<friendItemType>& outputList)
+{
+	int position = 1;
+	shared_ptr<Node<ItemType>> curPtr = outputList.headPtr;
+	while ( curPtr != nullptr ) {
+		outStream << position << "\t" << curPtr -> getItem() << std::endl;
+		curPtr = curPtr -> getNext();
+		position++;
+	}
+	return outStream;
+}
 
 
 
