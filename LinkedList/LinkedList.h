@@ -47,7 +47,7 @@ public:
 #include "ListInterface.h"
 #include "Node.h"
 #include "PrecondViolatedExcept.h"
-
+#include <cassert>
 template<class ItemType>
 class LinkedList : public ListInterface<ItemType> {
 private:
@@ -57,7 +57,10 @@ private:
 	int itemCount; // current element count of list
 	
 	// locates a specified node in a linked list
-	auto getNodeAt(int position) const;
+	std::shared_ptr<Node<ItemType>> getNodeAt(int position) const;
+	
+	// copy list node 
+	void copyListNode(const LinkedList<ItemType>& rhs);	
 public:
 	LinkedList();
 	// copy constructor
@@ -66,9 +69,10 @@ public:
 
 	bool operator==(const LinkedList<ItemType>& rhs) const;
 	LinkedList<ItemType>& operator=(const LinkedList<ItemType>& rightHandSide);
-	LinkedList<ItemType>& operator+(const LinkedList<ItemType>& rightHandSide);
+	// + for concatenation
+        //	LinkedList<ItemType>& operator+(const LinkedList<ItemType>& rightHandSide);
 
-	template<class firendItemType>
+	template<class friendItemType>
 	friend std::ostream& operator<<(std::ostream& outStream,
 					 const LinkedList<friendItemType>& outputList);
 	

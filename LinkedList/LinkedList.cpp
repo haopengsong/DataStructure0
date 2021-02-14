@@ -39,7 +39,7 @@ Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const {
 */
 // version 2 with shared ptr
 template<class ItemType>
-auto LinkedList<ItemType>::getNodeAt(int position) const {
+std::shared_ptr<Node<ItemType>> LinkedList<ItemType>::getNodeAt(int position) const {
 	// debugging check of precondition
 	assert(position >= 1 && position <= itemCount);
 	auto curPtr = headPtr;
@@ -131,17 +131,15 @@ LinkedList<ItemType>::~LinkedList() {
 	clear();
 }
 
-// reference to p147, chapter link-based arrayBag
 template<class ItemType>
-LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& rhs) {
-	itemCount = rhs.itemCount;
-	Node<ItemType>* originalChainPtr = rhs.headPtr;
+void LinkedList<ItemType>::copyListNode(const LinkedList<ItemType>& rhs) {	
+	std::shared_ptr<Node<ItemType>> originalChainPtr = rhs.headPtr;
 	if (originalChainPtr == nullptr) {
 		// empty so is the copy
 		headPtr = nullptr;
 	} else {
 		// copy head node
-		headPtr = new Node<ItemType>();
+		headPtr = std::make_shared<Node<ItemType>>();
 		headPtr -> setItem(originalChainPtr -> getItem());
 		// copy rest nodes
 		Node<ItemType>* newChainPtr = headPtr;
@@ -159,6 +157,12 @@ LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& rhs) {
 		}
 		newChainPtr -> setNext(nullptr);
 	}
+}
+
+// reference to p147, chapter link-based arrayBag
+template<class ItemType>
+LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& rhs) {
+	itemCount = rhs.itemCount;
 }
 
 template<class ItemType>
@@ -189,7 +193,46 @@ int LinkedList<ItemType>::getLength() const {
 
 template<class ItemType>
 bool LinkedList<ItemType>::operator==(const LinkedList<ItemType>& rhs) const {
+	bool isEqual = true;
+	// first check whether the number of items is the same
+	if (itemCount != rhs.getLength( ) ) {
+		isEqual = false;
+	} else {
+		std::shared_ptr<Node<ItemType>> leftSidePtr = headPtr;
+		std::shared_ptr<Node<ItemType>> rightSidePtr = rhs.headPtr; 	
+		while ( (leftSidePtr != nullptr) && (rightSidePtr != nullptr) && isEqual) {
+			ItemType leftItem = leftSidePtr -> getItem();
+			ItemType rightItem = rightSidePtr -> getItem();
+			// the operator == must be defined for ItemType
+			isEqual = (leftItem == rightItem);
+			leftSidePtr = leftSidePtr -> getNext();
+			rightSidePtr = rightSidePtr -> getNext();
+		}
+	}
+	return isEqual;
+}
 
+/*
+template<class ItemType>
+ItemType LinkedList<ItemType>::operator+(const LinkedList<ItemType>& rhs) {
+	
+} 
+*/
+
+// if you declare and initialize an object in the same statement, the compiler will invoke the copy constructor
+// not the = operator:
+// 	LinkedList<string> l1 = l2;
+// this is equivalent to:
+// 	LinkedList<string> l1(l2)
+
+template<class ItemType>
+LinkedList<ItemType>& LinkedList<ItemType>::operator=(const LinkedList<ItemType>& rhs) {
+	if (this != &rhs) {
+		this -> clear(); // deallocate left-hand side
+	        copyListNode( rhs ); // copy list nodes
+		itemCount = rhs.itemCount; // copy size of list		
+	}	
+	return *this;
 }
 
 template<class friendItemType>
@@ -197,7 +240,7 @@ std::ostream& operator<<(std::ostream& outStream,
 			const LinkedList<friendItemType>& outputList)
 {
 	int position = 1;
-	shared_ptr<Node<ItemType>> curPtr = outputList.headPtr;
+	std::shared_ptr<Node<friendItemType>> curPtr = outputList.headPtr;
 	while ( curPtr != nullptr ) {
 		outStream << position << "\t" << curPtr -> getItem() << std::endl;
 		curPtr = curPtr -> getNext();
