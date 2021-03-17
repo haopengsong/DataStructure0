@@ -240,6 +240,7 @@ std::ostream& operator<<(std::ostream& outStream,
 			const LinkedList<friendItemType>& outputList)
 {
 	int position = 1;
+	std::cout << " ostream << called " << std::endl;
 	std::shared_ptr<Node<friendItemType>> curPtr = outputList.headPtr;
 	while ( curPtr != nullptr ) {
 		outStream << position << "\t" << curPtr -> getItem() << std::endl;

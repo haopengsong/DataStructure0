@@ -46,5 +46,7 @@ int main(int argc, char const *argv[])
 
 	tester -> clear();
 
+	cout << "ostream << overloading: " << endl;
+	std::cout.operator<<(tester)<< endl;
 	return 0;
 }
