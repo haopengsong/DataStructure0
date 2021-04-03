@@ -19,41 +19,41 @@ using namespace std;
 template<class ItemType>
 class InsertionSort {
 public:
-	void insertionSort(ItemType inputs[], int n) {
-		/*
-		unsorted = first index of the unsorted region
-		loc = index of insertion in the sorted region
-		nextItem = next item in the unsorted region
-		initially, sorted region is inputs[0], unsorted region is inputs[0...n-1]
-		in general, sorted region is inputs[0...unsorted-1], unsorted region inputs[unsorted...n-1]
-		*/
-		for (int unsorted = 1; unsorted < n; unsorted++) {
-			/*
-			At this point, inputs[0...unsorted-1] is sorted
-			Find the right position (loc) in inputs[0...unsorted] for inputs[unsorted], which is the first entry in the unsorted region; shift, if
-			necessary, to make room
-			*/
-			ItemType nextItem = inputs[unsorted]; // copy item
-			int loc = unsorted;
-			while ((loc > 0) && (inputs[loc - 1] > nextItem)) {
-				/* shift inputs[loc - 1] to the right */
-				inputs[loc] = inputs[loc - 1];
-				loc--;
-			}
-			inputs[loc] = nextItem;
-		}
-	}
+    void insertionSort(ItemType inputs[], int n) {
+        /*
+           unsorted = first index of the unsorted region
+           loc = index of insertion in the sorted region
+           nextItem = next item in the unsorted region
+           initially, sorted region is inputs[0], unsorted region is inputs[0...n-1]
+           in general, sorted region is inputs[0...unsorted-1], unsorted region inputs[unsorted...n-1]
+           */
+        for (int unsorted = 1; unsorted < n; unsorted++) {
+            /*
+               At this point, inputs[0...unsorted-1] is sorted
+               Find the right position (loc) in inputs[0...unsorted] for inputs[unsorted], which is the first entry in the unsorted region; shift, if
+               necessary, to make room
+               */
+            ItemType nextItem = inputs[unsorted]; // copy item
+            int loc = unsorted;
+            while ((loc > 0) && (inputs[loc - 1] > nextItem)) {
+                /* shift inputs[loc - 1] to the right */
+                inputs[loc] = inputs[loc - 1];
+                loc--;
+            }
+            inputs[loc] = nextItem;
+        }
+    }
 };
 
 
 int main(int argc, char const *argv[]) {
-	InsertionSort<int> is;
-	int inputs[] = {1,9,5,0,200,-2};
-	int size = sizeof(inputs) / sizeof(int);
-	is.insertionSort(inputs, size);
-	for (int i : inputs) {
-		cout << i << " ";
-	}
-	cout << endl;
-	return 0;
+    InsertionSort<int> is;
+    int inputs[] = {1,9,5,0,200,-2};
+    int size = sizeof(inputs) / sizeof(int);
+    is.insertionSort(inputs, size);
+    for (int i : inputs) {
+        cout << i << " ";
+    }
+    cout << endl;
+    return 0;
 }
