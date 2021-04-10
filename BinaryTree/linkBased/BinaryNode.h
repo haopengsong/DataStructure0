@@ -31,3 +31,6 @@ public:
 }; // end BinaryNode
 #include "BinaryNode.cpp"
 #endif
+
+// Given this BinaryNode, a class of link-based binary trees will declare one data member -- a pointer rootPtr -- to point
+// to the tree's root node
