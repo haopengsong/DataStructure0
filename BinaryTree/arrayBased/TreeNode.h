@@ -13,7 +13,11 @@ which is called a 'free list'
 
 To insert a new node into the tree, you first obtain an available node from the free list.
 If you remove a node from the tree, you place it into the free list so that you can reuse the node at a later time.
+
+An array-based implementation of a binary tree is much more attractive when the tree is complete
+Priority-Queue
 */
+
 
 template<class ItemType>
 class TreeNode
