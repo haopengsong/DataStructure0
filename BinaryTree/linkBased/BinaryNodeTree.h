@@ -50,7 +50,63 @@ protected:
     void inorder(void visit(ItemType&), std::shared_ptr<BinaryNode<ItemType>> treePtr) const;
     void postorder(void visit(ItemType&), std::shared_ptr<BinaryNode<ItemType>> treePtr) const;
 public:
+    // Constructor & Destructor Section
+    BinaryNodeTree();
+    BinaryNodeTree(const ItemType &rootItem);
+    BinaryNodeTree(const ItemType &rootItem,
+                        const std::shared_ptr<BinaryNodeTree<ItemType>> leftTreePtr,
+                        const std::shared_ptr<BinaryNodeTree<ItemType>> rightTreePtr);
+    BinaryNodeTree(const std::shared_ptr<BinaryNodeTree<ItemType>> &tree);
+    virtual ~BinaryNodeTree();
     
+    // Public BinaryTreeInterface methods section
+    bool isEmpty() const;
+    int getHeight() const;
+    int getNumberOfNodes() const;
+    ItemType getRootData() const throw(PrecondViolatedExcept);
+    void setRootData() const throw(PrecondViolatedExcept);
+    bool add(const ItemType &newData); // adds an item to the tree
+    bool remove(const ItemType &data); // removes specified item from the tree
+    void clear();
+    ItemType getEntry(const ItemType &entry) const throw(NotFoundException);
+    bool contains(const ItemTYpe &entry) const;
 
-}
+    // public traversals section
+    void preorderTraverse(void visit(ItemType&)) const;
+    void inorderTraverse(void visit(ItemType&)) const;
+    void postorderTraverse(void visit(ItemType&)) const;
+
+    // overloaded operator section
+    // we may also need to overload other operators
+    BinaryNodeTree& operator=(const BinaryNodeTree &rightHandSide);
+}; // end BinaryNodeTree
+#include "BinaryNodeTree.cpp"
+#endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
