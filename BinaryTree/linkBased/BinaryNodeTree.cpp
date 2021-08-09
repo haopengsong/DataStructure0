@@ -75,9 +75,34 @@ int BinaryNodeTree<ItemType>::getHeightHelper(std::shared_ptr<BinaryNode<ItemTyp
     }
 }
 
+template<class ItemType>
+bool BinaryNodeTree<ItemType>::add(const ItemType& newData) {
+    auto nNodePtr = std::make_shared<BinaryNode<ItemType>>(newData);
+    rootPtr = balancedAdd(rootPtr, nNodePtr);
+    return true;
+} // end add
 
-
-
+// The recursive call to balancedAdd adds the new node and returns a pointer to the revised subtree
+// Then we need to link this subtree to the rest of the tree by setRight/LeftChildPtr .
+template<class ItemType>
+auto BinaryNodeTree<ItemType>::balancedAdd(std::shared_ptr<BinaryNode<ItemType>> subTreePtr,
+                                            std::shared_ptr<BinaryNode<ItemType>> newNodePtr)
+{
+    if (subTreePtr == nullptr) {
+        return newNodePtr;
+    } else {
+        auto leftPtr = subTreePtr->getLeftChildPtr();
+        auto rightPtr = subTreePtr->getRightChildPtr();
+        if (getHeightHelper(leftPtr) > getHeightHelper(rightPtr)) {
+            rightPtr = balancedAdd(rightPtr, newNodePtr);
+            subTreePtr->setRightChildPtr(rightPtr);
+        } else {
+            leftPtr = balancedAdd(leftPtr, newNodePtr);
+            subTreePtr->setLeftChildPtr(leftPtr);
+        }
+        return subTreePtr;
+    }
+}
 
 
 
