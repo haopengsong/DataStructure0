@@ -65,3 +65,104 @@ void heapifyNonRecursive( vector<int>& data, int i ) {
     }
 }
 
+/* 
+Insert into Heap
+1) Insert the new element at the end of the tree
+2) Heapify the tree
+*/
+void insert( vector<int>& data, int newItem ) {
+    int size = data.size();
+    if ( size == 0 ) {
+        data.push_back( newItem );
+    } else {
+        data.push_back( newItem );
+        for ( int i = size / 2 - 1; i >= 0; i++ ) {
+            heapify( data, i );
+        } 
+    }
+}   
+
+/*
+Delete from Heap
+1) Select the element to be deleted
+2) Swap it with the last element
+3) Remove the last element
+4) Heapify the tree
+*/
+void deleteNode( vector<int>& data, int newItem ) {
+    int size = data.size();
+    int i;
+    for ( i = 0; i < size; i++ ) {
+        if ( num == data[ i ] ) {
+            break;
+        }
+    }
+    swap( &data[ i ], &data[ size - 1 ] );
+    data.pop_back();
+    for ( int i = size / 2 - 1; i >= 0; i-- ) {
+        heapify( data, i );
+    }
+}
+
+void printHeap( vector<int>& data ) {
+    for ( int i = 0; i < data.size(); i++ ) {
+        std::cout << data[ i ] << " ";
+    }
+    std::cout << "\n" ;
+}
+
+int main() {
+
+    vector<int> heap;
+
+    insert( heap, 3 );
+    insert( heap, 4 );
+    insert( heap, 9 );
+    insert( heap, 5 );
+    insert( heap, 2 );
+    insert( heap, 8 );
+    insert( heap, 0 );
+    insert( heap, 12 );
+    insert( heap, 8 );
+    insert( heap, 1 );
+     
+    std::cout << "Max-Heap array : " ;
+    printHeap( heap );
+    deleteNode( heap, 9 );
+    std::cout << "After deleting an element: " ;
+    printHeap( heap );
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
