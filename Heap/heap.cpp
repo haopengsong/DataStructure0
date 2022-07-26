@@ -42,3 +42,26 @@ void heapify( vector<int> &data, int i ) {
         heapify( data, largest );
     }
 }
+
+void heapifyNonRecursive( vector<int>& data, int i ) {
+    int size = data.size();
+    while ( i < size ) { 
+        int largest = i;
+        int l = 2 * i + 1;
+        int r = 2 * i + 2;
+
+        if ( l < size && data[ l ] > data[ largest ] ) {
+            largest = l;
+        }
+        if ( r < size && data[ r ] > data[ largest ] ) {
+            largest = r;
+        }
+        if ( largest != i ) { 
+            swap( &data[ i ], &data[ largest ] );
+            i = largest; 
+        } else {
+            break;
+        }
+    }
+}
+
