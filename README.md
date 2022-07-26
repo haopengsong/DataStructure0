@@ -12,6 +12,7 @@
        - [Jan. 03, 2021] **LinkedSortedList**  [:white_check_mark:]
        - [Jan. 09, 2021] **SortedList(IsA, HasA, AsA)**  [:white_check_mark:]
        - [Feb. 6, 2021] **Queue(Linked, Array Circular)** [:white_check_mark:]
+       - [July 26, 2022] **Heap(Heapify, insert, delete)** 
 - Implementations of commonly used algorithms
 	- UnionFind
 	- Sorting -**MergeSort** -**QuickSort** -**BubbleSort** -**InsertionSort** -**SelectionSort**
