@@ -28,6 +28,7 @@ void swap(int *a, int *b) {
     *a = temp;
 }
 
+// o(n)
 void heapify( vector<int> &data, int i ) {
     int size = data.size();
     int largest = i;
@@ -136,7 +137,7 @@ int main() {
     return 0;
 }
 
-
+// Reference: https://www.programiz.com/dsa/heap-data-structure
 
 
 
