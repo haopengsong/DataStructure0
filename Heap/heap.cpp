@@ -20,6 +20,8 @@ The process of creating a heap data structure from a binary tree.
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 void swap(int *a, int *b) {
     int temp = *b;
     *b = *a;
@@ -76,7 +78,7 @@ void insert( vector<int>& data, int newItem ) {
         data.push_back( newItem );
     } else {
         data.push_back( newItem );
-        for ( int i = size / 2 - 1; i >= 0; i++ ) {
+        for ( int i = size / 2 - 1; i >= 0; i-- ) {
             heapify( data, i );
         } 
     }
@@ -93,7 +95,7 @@ void deleteNode( vector<int>& data, int newItem ) {
     int size = data.size();
     int i;
     for ( i = 0; i < size; i++ ) {
-        if ( num == data[ i ] ) {
+        if ( newItem == data[ i ] ) {
             break;
         }
     }
@@ -112,7 +114,6 @@ void printHeap( vector<int>& data ) {
 }
 
 int main() {
-
     vector<int> heap;
 
     insert( heap, 3 );
@@ -129,32 +130,11 @@ int main() {
     std::cout << "Max-Heap array : " ;
     printHeap( heap );
     deleteNode( heap, 9 );
-    std::cout << "After deleting an element: " ;
+
+    std::cout << "After deleting an element: "<< 9 << std::endl ;
     printHeap( heap );
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
