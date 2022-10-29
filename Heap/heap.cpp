@@ -15,6 +15,13 @@ The process of creating a heap data structure from a binary tree.
     - If leftChild is greater than currentElement (element at ith index), set leftChildInd      ex as largest; If rightChild is greater than element in largest, set rightChildIndex      as largest;
 4) Swap largest with currentElement
 5) Repeat 1) - 5)
+
+Priority Queue Applications:
+1) Dijkstra's algorithm
+2) for implementing stack
+3) for load balancing and interrupt handling in an operating system
+4) for data compression in Huffman code
+
 */
 
 #include <iostream>
@@ -22,7 +29,7 @@ The process of creating a heap data structure from a binary tree.
 
 using namespace std;
 
-void swap(int *a, int *b) {
+void swap( int *a, int *b ) {
     int temp = *b;
     *b = *a;
     *a = temp;
@@ -69,6 +76,7 @@ void heapifyNonRecursive( vector<int>& data, int i ) {
 }
 
 /* 
+o(log n)
 Insert into Heap
 1) Insert the new element at the end of the tree
 2) Heapify the tree
@@ -86,6 +94,7 @@ void insert( vector<int>& data, int newItem ) {
 }   
 
 /*
+o( log n )
 Delete from Heap
 1) Select the element to be deleted
 2) Swap it with the last element
@@ -114,7 +123,7 @@ void printHeap( vector<int>& data ) {
     std::cout << "\n" ;
 }
 
-int main() {
+int main( ) {
     vector<int> heap;
 
     insert( heap, 3 );
@@ -124,12 +133,12 @@ int main() {
     insert( heap, 2 );
     insert( heap, 8 );
     insert( heap, 0 );
-    insert( heap, 12 );
+    insert( heap, 12);
     insert( heap, 8 );
     insert( heap, 1 );
      
     std::cout << "Max-Heap array : " ;
-    printHeap( heap );
+    printHeap(  heap );
     deleteNode( heap, 9 );
 
     std::cout << "After deleting an element: "<< 9 << std::endl ;
